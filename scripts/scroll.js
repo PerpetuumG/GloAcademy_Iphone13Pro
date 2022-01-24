@@ -1,6 +1,7 @@
 const links = document.querySelectorAll('.header-menu__item a')
+const fullChar = document.querySelector('.card-details__link-characteristics')
 
-seamless.polyfill();
+seamless.polyfill()
 
 links.forEach((element) => {
     element.addEventListener('click', (event) => {
@@ -18,8 +19,19 @@ links.forEach((element) => {
                 behavior: "smooth",
                 block: "center",
                 inline: "center",
-            });
+            })
         }
+    })
+})
+
+fullChar.addEventListener('click', (event) => {
+    event.preventDefault()
+    const fullCharId = fullChar.getAttribute('href').substring(1)
+    const fullCharSection = document.getElementById(fullCharId)
+
+    seamless.elementScrollIntoView(fullCharSection, {
+        behavior: 'smooth',
+        block: 'start'
     })
 })
 
